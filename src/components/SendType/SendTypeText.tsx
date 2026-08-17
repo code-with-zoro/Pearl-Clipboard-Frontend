@@ -19,7 +19,7 @@ function SendTypeText() {
     const genrateKeyfunc = async () => {
         const response = await axios.post(`${baseUrl}/save_text`, {
             text: textValue,
-            type: type
+            type: type()
         })
         setKey(response.data.key);
     }
