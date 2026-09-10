@@ -2,7 +2,7 @@
   "rewrites": [
     {
       "source": "/api/:path*",
-      "destination": "http://pearlclipboard.ap-south-1.elasticbeanstalk.com/:path*"
+      "destination": "http://pearl-clipboard-env.eba-bwdc3i5d.ap-south-1.elasticbeanstalk.com/:path*"
     }
   ]
 }
