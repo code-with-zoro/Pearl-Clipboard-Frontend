@@ -22,16 +22,20 @@ function SendTypeFile() {
     }
 
     const genrateKeyfunc = async () => {
-
-        if (!fileValue) {
-            alert("Please select an image");
-            return;
+        try {
+            if (!fileValue) {
+                alert("Please select an image");
+                return;
+            }
+            const formData = new FormData();
+            formData.append("file", fileValue);
+            formData.append("type", type())
+            const response = await axios.post(`${baseUrl}/save_file`, formData)
+            setKey(response.data.key);
         }
-        const formData = new FormData();
-        formData.append("file", fileValue);
-        formData.append("type", type())
-        const response = await axios.post(`${baseUrl}/save_file`, formData)
-        setKey(response.data.key);
+        catch (error){
+            alert(error);
+        }
     }
     return (
         <>

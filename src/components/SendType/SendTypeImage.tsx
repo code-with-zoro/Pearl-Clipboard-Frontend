@@ -20,16 +20,19 @@ function SendTypeImage() {
         }else return "A_DAY";
     }
     const genrateKeyfunc = async () => {
-
-        if (!fileValue) {
-            alert("Please select an image");
-            return;
+        try {
+            if (!fileValue) {
+                alert("Please select an image");
+                return;
+            }
+            const formData = new FormData();
+            formData.append("file", fileValue);
+            formData.append("type", type())
+            const response = await axios.post(`${baseUrl}/save_file`, formData)
+            setKey(response.data.key);
+        }catch(error){
+            alert(error);
         }
-        const formData = new FormData();
-        formData.append("file" , fileValue);
-        formData.append("type" , type())
-        const response = await axios.post(`${baseUrl}/save_file`, formData)
-        setKey(response.data.key);
     }
     return(
         <>

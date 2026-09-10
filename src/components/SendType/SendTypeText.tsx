@@ -17,11 +17,15 @@ function SendTypeText() {
     }
 
     const genrateKeyfunc = async () => {
-        const response = await axios.post(`${baseUrl}/save_text`, {
-            text: textValue,
-            type: type()
-        })
-        setKey(response.data.key);
+        try {
+            const response = await axios.post(`${baseUrl}/save_text`, {
+                text: textValue,
+                type: type()
+            })
+            setKey(response.data.key);
+        } catch (error) {
+            alert(error);
+        }
     }
 
     return(
