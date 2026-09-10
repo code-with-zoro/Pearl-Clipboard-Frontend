@@ -34,7 +34,7 @@ function SendTypeFile() {
             setKey(response.data.key);
         }
         catch (error){
-            alert(error);
+            alert("file size should be under 500KB ");
         }
     }
     return (

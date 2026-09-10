@@ -24,7 +24,7 @@ function SendTypeText() {
             })
             setKey(response.data.key);
         } catch (error) {
-            alert(error);
+            alert("Paragraph should bne under 1000 words");
         }
     }
 
